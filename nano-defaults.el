@@ -42,10 +42,10 @@
 (setq pop-up-windows nil)
 
 ;; User name
-(setq user-full-name "Nicolas P. Rougier")
+(setq user-full-name "Warren Harper")
 
 ;; User mail address
-(setq user-mail-address "Nicolas.Rougier@inria.fr")
+(setq user-mail-address "warren@wjh.io")
       
 ;; No empty line indicators
 (setq indicate-empty-lines nil)
@@ -110,11 +110,11 @@
 ;; Mac specific
 (when (eq system-type 'darwin)
   (setq ns-use-native-fullscreen t
-        mac-option-key-is-meta nil
-        mac-command-key-is-meta t
-        mac-command-modifier 'meta
-        mac-option-modifier nil
-        mac-use-title-bar nil))
+      mac-option-key-is-meta t
+      mac-command-key-is-meta t
+      mac-command-modifier 'control
+      mac-option-modifier 'meta
+      mac-use-title-bar nil))
 
 ;; Make sure clipboard works properly in tty mode on OSX
 (defun copy-from-osx ()
