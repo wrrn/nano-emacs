@@ -18,16 +18,41 @@
 
 (setq default-frame-alist
       (append (list
-	       '(font . "Roboto Mono:style=Light:size=14")
-	       ;; '(font . "Roboto Mono Emacs Regular:size=14")
-	       '(min-height . 1)  '(height     . 45)
-	       '(min-width  . 1) '(width      . 81)
                '(vertical-scroll-bars . nil)
                '(internal-border-width . 24)
                '(left-fringe    . 0)
                '(right-fringe   . 0)
                '(tool-bar-lines . 0)
                '(menu-bar-lines . 0))))
+
+(defun font-existsp (font)
+  "Check to see if the named FONT is available."
+  (if (null (x-list-fonts font))
+      nil t))
+
+;; Set default font. First one found is selected.
+(cond
+ ((eq window-system nil) nil)
+ ((font-existsp "Jetbrains Mono")
+  (set-face-attribute 'default nil :height 131 :font "Jetbrains Mono"))
+ ((font-existsp "Roboto Mono")
+  (set-face-attribute 'default nil :height 131 :font "Roboto Mono"))
+ ((font-existsp "Input Mono Compressed")
+  (set-face-attribute 'default nil :height 131 :font "Input Mono Compressed"))
+ ((font-existsp "PragmataPro")
+  (set-face-attribute 'default nil :height 131 :font "PragmataPro"))
+  ((font-existsp "Source Code Pro")
+  (set-face-attribute 'default nil :height 121 :font "Source Code Pro"))
+ ((font-existsp "Menlo")
+  (set-face-attribute 'default nil :height 121 :font "Menlo"))
+ ((font-existsp "Consolas")
+  (set-face-attribute 'default nil :height 121 :font "Consolas"))
+ ((font-existsp "Inconsolata")
+  (set-face-attribute 'default nil :height 121 :font "Inconsolata"))
+   ((font-existsp "Envy Code R")
+  (set-face-attribute 'default nil :height 121 :font "Envy Code R"))
+   )
+
 
 ;; on OSX, type the line below (in terminal) to get a 1 pixel border
 ;; defaults write com.apple.universalaccess increaseContrast -bool YES
