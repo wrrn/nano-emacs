@@ -21,19 +21,19 @@
 ;; Default layout (optional)
 (require 'nano-layout)
 
-;; Theming Command line options (this will cancel warning messages)
-(add-to-list 'command-switch-alist '("-dark"   . (lambda (args))))
-(add-to-list 'command-switch-alist '("-light"  . (lambda (args))))
-(add-to-list 'command-switch-alist '("-default"  . (lambda (args))))
-(add-to-list 'command-switch-alist '("-no-splash" . (lambda (args))))
-(add-to-list 'command-switch-alist '("-no-help" . (lambda (args))))
-(add-to-list 'command-switch-alist '("-compact" . (lambda (args))))
+;; ;; Theming Command line options (this will cancel warning messages)
+;; (add-to-list 'command-switch-alist '("-dark"   . (lambda (args))))
+;; (add-to-list 'command-switch-alist '("-light"  . (lambda (args))))
+;; (add-to-list 'command-switch-alist '("-default"  . (lambda (args))))
+;; (add-to-list 'command-switch-alist '("-no-splash" . (lambda (args))))
+;; (add-to-list 'command-switch-alist '("-no-help" . (lambda (args))))
+;; (add-to-list 'command-switch-alist '("-compact" . (lambda (args))))
 
 
-(cond
- ((member "-default" command-line-args) t)
- ((member "-dark" command-line-args) (require 'nano-theme-dark))
- (t (require 'nano-theme-light)))
+;; (cond
+;;  ((member "-default" command-line-args) t)
+;;  ((member "-dark" command-line-args) (require 'nano-theme-dark))
+;;  (t (require 'nano-theme-light)))
 
 ;; Customize support for 'emacs -q' (Optional)
 ;; You can enable customizations by creating the nano-custom.el file
@@ -49,6 +49,7 @@
     (load custom-file)))
 
 ;; Theme
+(require 'nano-theme-dark)
 (require 'nano-faces)
 (nano-faces)
 
